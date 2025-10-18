@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Urban Threads | Back-to-School Collection 2025</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #fff;
+      background-color: #002d72;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #0033a0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 80px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 2px;
+      color: #b8ff2c;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover { color: #b8ff2c; }
+
+    .cta-btn {
+      background-color: #b8ff2c;
+      color: #0033a0;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .cta-btn:hover { background-color: #a5f02a; }
+
+    .auth-buttons {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .welcome {
+      font-weight: 600;
+      margin-right: 10px;
+      color: #b8ff2c;
+    }
+
+    /* HERO */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      text-align: center;
+      padding: 120px 20px;
+    }
+
+    .hero h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      letter-spacing: 2px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin: 15px 0 25px;
+    }
+
+    /* PRODUCTS */
+    .products {
+      background-color: #012b66;
+      padding: 80px 60px;
+      text-align: center;
+    }
+
+    .products h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .product {
+      background-color: #003c9e;
+      border-radius: 10px;
+      padding: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .product h4 {
+      margin-top: 15px;
+      color: #b8ff2c;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+    }
+
+    /* ABOUT */
+    .about {
+      padding: 80px 60px;
+      text-align: center;
+      background-color: #0033a0;
+    }
+
+    .about h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    /* NEWSLETTER */
+    .newsletter {
+      background-color: #002b66;
+      text-align: center;
+      padding: 60px 40px;
+    }
+
+    .newsletter h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    .newsletter input {
+      padding: 10px;
+      width: 280px;
+      border-radius: 5px;
+      border: none;
+      margin-right: 10px;
+      font-size: 1rem;
+    }
+
+    footer {
+      background-color: #001f4d;
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #b8ff2c;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    /* MODALS */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 20;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: #0033a0;
+      padding: 40px;
+      border-radius: 10px;
+      width: 350px;
+      text-align: center;
+      position: relative;
+    }
+
+    .modal-content h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      color: #b8ff2c;
+      margin-bottom: 20px;
+    }
+
+    .modal-content input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .close {
+      position: absolute;
+      right: 15px;
+      top: 10px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    .close:hover { color: #b8ff2c; }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <h1>URBAN THREADS</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="auth-buttons" id="authButtons">
+      <button class="cta-btn" onclick="openModal('signInModal')">Sign In</button>
+      <button class="cta-btn" onclick="openModal('signUpModal')">Sign Up</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h2>Be Bold. Be You. Be Urban.</h2>
+    <p>Fresh tees for a fresh start — only at Urban Threads.</p>
+    <button class="cta-btn">Shop the Collection</button>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products">
+    <h3>🔥 This Season’s Picks</h3>
+    <div class="product-grid">
+      <div class="product">
+        <img src="https://via.placeholder.com/300x300/0033a0/ffffff?text=Classic+Campus+Tee" alt="Classic Campus Tee">
+        <h4>Classic Campus Tee</h4>
+      </div>
+      <div class="product">
+        <img src="https://via.placeholder.com/300x300/0033a0/ffffff?text=Neon+Street+Style" alt="Neon Street Style">
+        <h4>Neon Street Style</h4>
+      </div>
+      <div class="product">
+        <img src="https://via.placeholder.com/300x300/0033a0/ffffff?text=Retro+Type+Tee" alt="Retro Type Tee">
+        <h4>Retro Type Tee</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about">
+    <h3>About Urban Threads</h3>
+    <p>Urban Threads is a local streetwear brand born from campus creativity. Designed for dreamers, doers, and go-getters — express your vibe with every tee. Our mission: to bring confidence and comfort to your everyday style.</p>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <h3>Join the Urban Crew</h3>
+    <p>Sign up for exclusive drops and early deals.</p>
+    <form>
+      <input type="email" placeholder="Enter your email" required />
+      <button class="cta-btn" type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Urban Threads. All Rights Reserved.</p>
+    <p>
+      <a href="#">Privacy Policy</a> | 
+      <a href="#">Terms of Service</a> | 
+      <a href="#">Contact Us</a>
+    </p>
+  </footer>
+
+  <!-- SIGN IN MODAL -->
+  <div id="signInModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('signInModal')">&times;</span>
+      <h2>Sign In</h2>
+      <form id="signInForm">
+        <input type="email" id="signInEmail" placeholder="Email" required><br>
+        <input type="password" id="signInPassword" placeholder="Password" required><br>
+        <button class="cta-btn" type="submit">Sign In</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- SIGN UP MODAL -->
+  <div id="signUpModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('signUpModal')">&times;</span>
+      <h2>Create Account</h2>
+      <form id="signUpForm">
+        <input type="text" id="signUpName" placeholder="Full Name" required><br>
+        <input type="email" id="signUpEmail" placeholder="Email" required><br>
+        <input type="password" id="signUpPassword" placeholder="Password" required><br>
+        <button class="cta-btn" type="submit">Sign Up</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // OPEN/CLOSE MODALS
+    function openModal(id) {
+      document.getElementById(id).style.display = 'flex';
+    }
+    function closeModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+    window.onclick = function(e) {
+      document.querySelectorAll('.modal').forEach(m => {
+        if (e.target == m) m.style.display = 'none';
+      });
+    };
+
+    // SIGN UP
+    document.getElementById("signUpForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.getElementById("signUpName").value;
+      const email = document.getElementById("signUpEmail").value;
+      const password = document.getElementById("signUpPassword").value;
+
+      localStorage.setItem("urbanUser", JSON.stringify({ name, email, password }));
+      alert("Account created successfully!");
+      closeModal("signUpModal");
+      showWelcome(name);
+    });
+
+    // SIGN IN
+    document.getElementById("signInForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const email = document.getElementById("signInEmail").value;
+      const password = document.getElementById("signInPassword").value;
+      const storedUser = JSON.parse(localStorage.getItem("urbanUser"));
+
+      if (storedUser && storedUser.email === email && storedUser.password === password) {
+        alert("Welcome back, " + storedUser.name + "!");
+        closeModal("signInModal");
+        showWelcome(storedUser.name);
+      } else {
+        alert("Invalid credentials. Please try again.");
+      }
+    });
+
+    // DISPLAY USER INFO
+    function showWelcome(name) {
+      const authDiv = document.getElementById("authButtons");
+      authDiv.innerHTML = `
+        <span class='welcome'>Welcome, ${name}</span>
+        <button class='cta-btn' onclick='logout()'>Log Out</button>
+      `;
+    }
+
+    // LOG OUT
+    function logout() {
+      localStorage.removeItem("urbanUser");
+      const authDiv = document.getElementById("authButtons");
+      authDiv.innerHTML = `
+        <button class="cta-btn" onclick="openModal('signInModal')">Sign In</button>
+        <button class="cta-btn" onclick="openModal('signUpModal')">Sign Up</button>
+      `;
+    }
+
+    // AUTO LOGIN CHECK
+    window.onload = () => {
+      const storedUser = JSON.parse(localStorage.getItem("urbanUser"));
+      if (storedUser) showWelcome(storedUser.name);
+    };
+  </script>
+</body>
+</html>
